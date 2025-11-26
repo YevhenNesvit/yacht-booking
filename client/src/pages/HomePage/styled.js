@@ -1,9 +1,8 @@
-import harbour from "@/assets/images/harbour.jpg";
 import { styled, css } from "@mui/material/styles";
 import { Stack } from "@mui/material";
 
 export const StyledWrapper = styled(Stack)`
-  background-image: url(${harbour});
+  background-image: url("../../assets/images/harbour.jpg");
   background-size: cover;
   background-position: center;
   height: 100%;
