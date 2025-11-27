@@ -3,7 +3,7 @@ import HeartIcon from "src/assets/icons/heart.svg";
 import ProfileIcon from "src/assets/icons/profile.svg";
 import BagIcon from "src/assets/icons/bag.svg";
 import { useModal } from "src/hooks";
-import { UserModal } from "src/components";
+import UserModal from "../UserModal";
 
 const UserMenu = () => {
   const {
