@@ -1,7 +1,9 @@
 import { useEffect } from "react";
-import { NavBar, UserMenu, AuthButtons } from "src/components";
-import { useAuth } from "src/context/authContext";
+import NavBar from "../NavBar";
+import UserMenu from "../UserMenu";
+import AuthButtons from "../AuthButtons";
 
+import { useAuth } from "src/context/authContext";
 import LogoIcon from "src/assets/logo.svg";
 import { StyledStack } from "./styled";
 
