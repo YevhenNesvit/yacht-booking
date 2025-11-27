@@ -10,7 +10,7 @@ import { Stack } from "@mui/material";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginUser } from "src/services/auth";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { useAuth } from "src/context/authContext";
 
 const schema = yup.object().shape({
@@ -19,8 +19,9 @@ const schema = yup.object().shape({
 });
 
 const SignInForm = ({ onClose }) => {
-  const queryClient = useQueryClient();
-  const { setUser } = useAuth();
+  // Дістаємо функцію login з контексту
+  const { login } = useAuth();
+  
   const formMethods = useForm({
     defaultValues: { email: "", password: "" },
     resolver: yupResolver(schema),
@@ -31,10 +32,11 @@ const SignInForm = ({ onClose }) => {
   const { mutate: loginMutation, isPending } = useMutation({
     mutationFn: loginUser,
     onSuccess: (data) => {
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("userId", data.user?.id);
-      queryClient.refetchQueries(["currentUser"]);
-      setUser({ ...data.user, token: data.token });
+      // ВИПРАВЛЕНО: Використовуємо функцію login з контексту.
+      // data.token - це рядок токена
+      // data.user - це об'єкт користувача з полем role
+      login(data.token, data.user);
+      
       onClose();
       showSuccess("User is successfully logged in");
     },
@@ -75,3 +77,4 @@ const SignInForm = ({ onClose }) => {
 };
 
 export default SignInForm;
+
