@@ -1,6 +1,7 @@
 import { Stack } from "@mui/material";
-import { Button, AuthModal } from "src/components";
+import { Button } from "src/components";
 import { useAuthHook } from "src/hooks";
+import AuthModal from "../AuthModal";
 
 const AuthButtons = () => {
   const {
