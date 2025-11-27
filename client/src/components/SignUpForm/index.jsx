@@ -100,11 +100,11 @@ const SignUpForm = ({ onClose }) => {
     const numberBudgetMin = isValidNumber(budgetMin) ? Number(budgetMin) : null;
     const numberBudgetMax = isValidNumber(budgetMax) ? Number(budgetMax) : null;
     if (!numberBudgetMin) {
-      showError(_, "Minimum budget must be a number");
+      showError(null, "Minimum budget must be a number");
       return;
     }
     if (!numberBudgetMax) {
-      showError(_, "Maximum budget must be a number");
+      showError(null, "Maximum budget must be a number");
       return;
     }
     registerMutation({
@@ -114,7 +114,6 @@ const SignUpForm = ({ onClose }) => {
     });
   };
 
-  // TODO add lessee specific fields budget, sailing experience
   return (
     <Stack gap={2} width={"76%"}>
       <FormProvider {...formMethods}>
@@ -197,3 +196,4 @@ const SignUpForm = ({ onClose }) => {
 };
 
 export default SignUpForm;
+
