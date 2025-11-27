@@ -6,13 +6,17 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "modern-normalize";
 import "./index.css";
 import App from "./App.jsx";
+import { AuthProvider } from "./context/authContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <ReactQueryClientProvider>
         <ReactQueryDevtools />
-        <App />
+        {/* 2. Обгортаємо App у AuthProvider */}
+        <AuthProvider>
+          <App />
+        </AuthProvider>
       </ReactQueryClientProvider>
     </BrowserRouter>
   </StrictMode>
