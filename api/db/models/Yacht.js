@@ -101,6 +101,6 @@ const Yacht = sequelize.define(
   }
 );
 
-// Yacht.sync({ alter: true });
+Yacht.sync({ alter: true });
 
 export default Yacht;
